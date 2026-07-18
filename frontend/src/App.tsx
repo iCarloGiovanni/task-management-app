@@ -1,11 +1,9 @@
 import "./App.css";
+import { TaskPage } from "./pages/TaskPage";
 
 function App() {
   return (
-    <main>
-      <h1>Task Management App</h1>
-      <p>Frontend successfully initialized.</p>
-    </main>
+    <TaskPage />
   );
 }
 

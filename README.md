@@ -1,118 +1,147 @@
 # Task Management App
 
-A full-stack task management application built to practice modern web development using **Node.js**, **Express**, **TypeScript**, and **React**.
+A full-stack task management application built with TypeScript.
 
-This project is being developed following real-world software engineering practices, including layered architecture, version control with Git, RESTful API design, and frontend/backend separation.
+The project currently includes a REST API developed with Node.js and Express, along with an interactive React frontend. The frontend currently manages tasks locally; API integration is the next development phase.
 
----
-
-## 🚀 Tech Stack
+## Tech Stack
 
 ### Backend
 
-* Node.js
-* Express
-* TypeScript
+- Node.js
+- Express
+- TypeScript
+- TSX
 
-### Frontend *(coming soon)*
+### Frontend
 
-* React
-* Vite
-* TypeScript
+- React
+- TypeScript
+- Vite
+- ESLint
 
-### Tools
-
-* Git & GitHub
-* Thunder Client
-* VS Code
-
----
-
-## ✨ Features
+## Current Features
 
 ### Backend
 
-* REST API
-* CRUD operations for tasks
-* Layered architecture
+- Retrieve all tasks
+- Retrieve a task by ID
+- Create tasks
+- Fully update tasks
+- Partially update tasks
+- Delete tasks
+- HTTP status handling
+- Layered structure with routes, controllers, services and models
 
-  * Routes
-  * Controllers
-  * Services
-  * Models
-* DTOs
-* TypeScript
-* Environment variables
-* Error handling
+### Frontend
 
-### Planned Features
+- Typed task models
+- Reusable React components
+- Task list and individual task rendering
+- Empty-state rendering
+- Controlled task creation form
+- Title validation
+- Priority selection
+- Optional due dates
+- Local task state with `useState`
+- Immutable state updates
+- Calendar-date formatting without timezone shifts
 
-* React frontend
-* Task creation and editing
-* Task completion
-* Task filtering
-* Persistent database
-* Authentication
-* Responsive UI
-* Unit testing
-* Deployment
+## Project Structure
 
----
-
-## 📁 Project Structure
-
-```
+```text
 task-management-app/
 ├── backend/
-└── frontend/
+│   ├── src/
+│   │   ├── controllers/
+│   │   ├── models/
+│   │   ├── routes/
+│   │   ├── services/
+│   │   ├── app.ts
+│   │   └── server.ts
+│   ├── package.json
+│   └── tsconfig.json
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── TaskForm.tsx
+│   │   │   ├── TaskItem.tsx
+│   │   │   └── TaskList.tsx
+│   │   ├── models/
+│   │   │   └── task.model.ts
+│   │   ├── pages/
+│   │   │   └── TaskPage.tsx
+│   │   ├── App.tsx
+│   │   ├── index.css
+│   │   └── main.tsx
+│   ├── package.json
+│   └── vite.config.ts
+├── .gitignore
+└── README.md
 ```
 
-> The project is currently being migrated into a frontend/backend monorepo structure.
+## Running the Project
 
----
-
-## 🛠️ Getting Started
-
-### Clone the repository
+### Backend
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/task-management-app.git
-```
-
-### Install dependencies
-
-```bash
+cd backend
 npm install
-```
-
-### Start the development server
-
-```bash
 npm run dev
 ```
 
----
+The backend runs at:
 
-## 🎯 Purpose
+```text
+http://localhost:3000
+```
 
-This project is part of my journey to strengthen my Full-Stack development skills while applying professional software engineering practices.
+### Frontend
 
-The goal is not only to build a functional application, but also to practice clean architecture, maintainable code, version control, and modern frontend development.
+Open another terminal:
 
----
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-## 📌 Roadmap
+Vite will display the local frontend URL in the terminal.
 
-* [x] Node.js + Express setup
-* [x] TypeScript configuration
-* [x] CRUD API
-* [x] DTO implementation
-* [x] Validation
-* [x] Git repository
-* [x] GitHub repository
-* [ ] Monorepo structure
-* [ ] React frontend
-* [ ] API integration
-* [ ] Database
-* [ ] Authentication
-* [ ] Deployment
+## API Endpoints
+
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET` | `/tasks` | Retrieve all tasks |
+| `GET` | `/tasks/:id` | Retrieve a task by ID |
+| `POST` | `/tasks` | Create a task |
+| `PUT` | `/tasks/:id` | Fully update a task |
+| `PATCH` | `/tasks/:id` | Partially update a task |
+| `DELETE` | `/tasks/:id` | Delete a task |
+
+## Important Notes
+
+The backend currently stores tasks in memory. All created or updated data is reset when the backend server restarts.
+
+The frontend currently uses local state and has not yet been connected to the REST API.
+
+## Roadmap
+
+- [x] Create the Node.js and Express backend
+- [x] Implement task CRUD endpoints
+- [x] Add TypeScript models and DTOs
+- [x] Restructure the repository into `backend` and `frontend`
+- [x] Initialize React with Vite and TypeScript
+- [x] Build the frontend component structure
+- [x] Add controlled task creation form
+- [x] Manage tasks with local React state
+- [ ] Connect the frontend to `GET /tasks`
+- [ ] Connect task creation to `POST /tasks`
+- [ ] Connect task updates to `PATCH /tasks/:id`
+- [ ] Connect task deletion to `DELETE /tasks/:id`
+- [ ] Add request loading and error states
+- [ ] Add runtime validation
+- [ ] Add database persistence
+- [ ] Add automated tests
+- [ ] Add authentication
+- [ ] Deploy the application
